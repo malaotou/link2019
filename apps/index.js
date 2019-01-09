@@ -35,5 +35,13 @@ var router = function (app) {
         })
         res.send("1 document inserted");
     })
+    app.get('/counter',(req,res)=>{
+        var cnt=new counter(1,1,1,1,1);
+        mongo.getCounter(cnt).then((data) => {
+            console.log('create sucess')
+        }).catch(err => {
+        })
+        res.send("1 document inserted");
+    })
 }
 exports.route = router;

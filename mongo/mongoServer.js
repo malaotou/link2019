@@ -60,5 +60,19 @@ module.exports = {
 
         });
         return promise;
-    }
+    },
+    getCounter:function (filter) {
+        return new Promise((resolve, reject) => {
+            MongoClient.connect(url, (err, db) => {
+                if (err) throw err;
+                var dbo = db.db("licai");
+                //var myobj = data;
+                dbo.collection("counters").find({}).toArray(function (err, result) {
+                    if (err) reject(err);
+                    else
+                        resolve(result);
+                })
+            })
+        })
+    },
 }
