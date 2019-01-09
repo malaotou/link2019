@@ -31,7 +31,7 @@ module.exports = {
                 if (err) throw err;
                 var dbo = db.db("licai");
                 //var myobj = data;
-                dbo.collection("visitors").find({}).toArray(function (err, result) {
+                dbo.collection("visitors").find({}).sort({dateTime:-1}).toArray(function (err, result) {
                     if (err) reject(err);
                     else
                         resolve(result);
@@ -67,7 +67,7 @@ module.exports = {
                 if (err) throw err;
                 var dbo = db.db("licai");
                 //var myobj = data;
-                dbo.collection("counters").find({}).toArray(function (err, result) {
+                dbo.collection("counters").find({}).sort({dateTime:-1}).toArray(function (err, result) {
                     if (err) reject(err);
                     else
                         resolve(result);
